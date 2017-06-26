@@ -1,3 +1,5 @@
+##exp-query - forked from eth-query
+
 like web3 but for minimalists
 
 
