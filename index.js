@@ -1,10 +1,10 @@
 const extend = require('xtend')
 const createRandomId = require('json-rpc-random-id')()
 
-module.exports = EthQuery
+module.exports = ExpQuery
 
 
-function EthQuery(provider){
+function ExpQuery(provider){
   const self = this
   self.currentProvider = provider
 }
@@ -14,57 +14,57 @@ function EthQuery(provider){
 //
 
 // default block
-EthQuery.prototype.getBalance =                          generateFnWithDefaultBlockFor(2, 'eth_getBalance')
-EthQuery.prototype.getCode =                             generateFnWithDefaultBlockFor(2, 'eth_getCode')
-EthQuery.prototype.getTransactionCount =                 generateFnWithDefaultBlockFor(2, 'eth_getTransactionCount')
-EthQuery.prototype.getStorageAt =                        generateFnWithDefaultBlockFor(3, 'eth_getStorageAt')
-EthQuery.prototype.call =                                generateFnWithDefaultBlockFor(2, 'eth_call')
+ExpQuery.prototype.getBalance =                          generateFnWithDefaultBlockFor(2, 'eth_getBalance')
+ExpQuery.prototype.getCode =                             generateFnWithDefaultBlockFor(2, 'eth_getCode')
+ExpQuery.prototype.getTransactionCount =                 generateFnWithDefaultBlockFor(2, 'eth_getTransactionCount')
+ExpQuery.prototype.getStorageAt =                        generateFnWithDefaultBlockFor(3, 'eth_getStorageAt')
+ExpQuery.prototype.call =                                generateFnWithDefaultBlockFor(2, 'eth_call')
 // standard
-EthQuery.prototype.protocolVersion =                     generateFnFor('eth_protocolVersion')
-EthQuery.prototype.syncing =                             generateFnFor('eth_syncing')
-EthQuery.prototype.coinbase =                            generateFnFor('eth_coinbase')
-EthQuery.prototype.mining =                              generateFnFor('eth_mining')
-EthQuery.prototype.hashrate =                            generateFnFor('eth_hashrate')
-EthQuery.prototype.gasPrice =                            generateFnFor('eth_gasPrice')
-EthQuery.prototype.accounts =                            generateFnFor('eth_accounts')
-EthQuery.prototype.blockNumber =                         generateFnFor('eth_blockNumber')
-EthQuery.prototype.getBlockTransactionCountByHash =      generateFnFor('eth_getBlockTransactionCountByHash')
-EthQuery.prototype.getBlockTransactionCountByNumber =    generateFnFor('eth_getBlockTransactionCountByNumber')
-EthQuery.prototype.getUncleCountByBlockHash =            generateFnFor('eth_getUncleCountByBlockHash')
-EthQuery.prototype.getUncleCountByBlockNumber =          generateFnFor('eth_getUncleCountByBlockNumber')
-EthQuery.prototype.sign =                                generateFnFor('eth_sign')
-EthQuery.prototype.sendTransaction =                     generateFnFor('eth_sendTransaction')
-EthQuery.prototype.sendRawTransaction =                  generateFnFor('eth_sendRawTransaction')
-EthQuery.prototype.estimateGas =                         generateFnFor('eth_estimateGas')
-EthQuery.prototype.getBlockByHash =                      generateFnFor('eth_getBlockByHash')
-EthQuery.prototype.getBlockByNumber =                    generateFnFor('eth_getBlockByNumber')
-EthQuery.prototype.getTransactionByHash =                generateFnFor('eth_getTransactionByHash')
-EthQuery.prototype.getTransactionByBlockHashAndIndex =   generateFnFor('eth_getTransactionByBlockHashAndIndex')
-EthQuery.prototype.getTransactionByBlockNumberAndIndex = generateFnFor('eth_getTransactionByBlockNumberAndIndex')
-EthQuery.prototype.getTransactionReceipt =               generateFnFor('eth_getTransactionReceipt')
-EthQuery.prototype.getUncleByBlockHashAndIndex =         generateFnFor('eth_getUncleByBlockHashAndIndex')
-EthQuery.prototype.getUncleByBlockNumberAndIndex =       generateFnFor('eth_getUncleByBlockNumberAndIndex')
-EthQuery.prototype.getCompilers =                        generateFnFor('eth_getCompilers')
-EthQuery.prototype.compileLLL =                          generateFnFor('eth_compileLLL')
-EthQuery.prototype.compileSolidity =                     generateFnFor('eth_compileSolidity')
-EthQuery.prototype.compileSerpent =                      generateFnFor('eth_compileSerpent')
-EthQuery.prototype.newFilter =                           generateFnFor('eth_newFilter')
-EthQuery.prototype.newBlockFilter =                      generateFnFor('eth_newBlockFilter')
-EthQuery.prototype.newPendingTransactionFilter =         generateFnFor('eth_newPendingTransactionFilter')
-EthQuery.prototype.uninstallFilter =                     generateFnFor('eth_uninstallFilter')
-EthQuery.prototype.getFilterChanges =                    generateFnFor('eth_getFilterChanges')
-EthQuery.prototype.getFilterLogs =                       generateFnFor('eth_getFilterLogs')
-EthQuery.prototype.getLogs =                             generateFnFor('eth_getLogs')
-EthQuery.prototype.getWork =                             generateFnFor('eth_getWork')
-EthQuery.prototype.submitWork =                          generateFnFor('eth_submitWork')
-EthQuery.prototype.submitHashrate =                      generateFnFor('eth_submitHashrate')
+ExpQuery.prototype.protocolVersion =                     generateFnFor('eth_protocolVersion')
+ExpQuery.prototype.syncing =                             generateFnFor('eth_syncing')
+ExpQuery.prototype.coinbase =                            generateFnFor('eth_coinbase')
+ExpQuery.prototype.mining =                              generateFnFor('eth_mining')
+ExpQuery.prototype.hashrate =                            generateFnFor('eth_hashrate')
+ExpQuery.prototype.gasPrice =                            generateFnFor('eth_gasPrice')
+ExpQuery.prototype.accounts =                            generateFnFor('eth_accounts')
+ExpQuery.prototype.blockNumber =                         generateFnFor('eth_blockNumber')
+ExpQuery.prototype.getBlockTransactionCountByHash =      generateFnFor('eth_getBlockTransactionCountByHash')
+ExpQuery.prototype.getBlockTransactionCountByNumber =    generateFnFor('eth_getBlockTransactionCountByNumber')
+ExpQuery.prototype.getUncleCountByBlockHash =            generateFnFor('eth_getUncleCountByBlockHash')
+ExpQuery.prototype.getUncleCountByBlockNumber =          generateFnFor('eth_getUncleCountByBlockNumber')
+ExpQuery.prototype.sign =                                generateFnFor('eth_sign')
+ExpQuery.prototype.sendTransaction =                     generateFnFor('eth_sendTransaction')
+ExpQuery.prototype.sendRawTransaction =                  generateFnFor('eth_sendRawTransaction')
+ExpQuery.prototype.estimateGas =                         generateFnFor('eth_estimateGas')
+ExpQuery.prototype.getBlockByHash =                      generateFnFor('eth_getBlockByHash')
+ExpQuery.prototype.getBlockByNumber =                    generateFnFor('eth_getBlockByNumber')
+ExpQuery.prototype.getTransactionByHash =                generateFnFor('eth_getTransactionByHash')
+ExpQuery.prototype.getTransactionByBlockHashAndIndex =   generateFnFor('eth_getTransactionByBlockHashAndIndex')
+ExpQuery.prototype.getTransactionByBlockNumberAndIndex = generateFnFor('eth_getTransactionByBlockNumberAndIndex')
+ExpQuery.prototype.getTransactionReceipt =               generateFnFor('eth_getTransactionReceipt')
+ExpQuery.prototype.getUncleByBlockHashAndIndex =         generateFnFor('eth_getUncleByBlockHashAndIndex')
+ExpQuery.prototype.getUncleByBlockNumberAndIndex =       generateFnFor('eth_getUncleByBlockNumberAndIndex')
+ExpQuery.prototype.getCompilers =                        generateFnFor('eth_getCompilers')
+ExpQuery.prototype.compileLLL =                          generateFnFor('eth_compileLLL')
+ExpQuery.prototype.compileSolidity =                     generateFnFor('eth_compileSolidity')
+ExpQuery.prototype.compileSerpent =                      generateFnFor('eth_compileSerpent')
+ExpQuery.prototype.newFilter =                           generateFnFor('eth_newFilter')
+ExpQuery.prototype.newBlockFilter =                      generateFnFor('eth_newBlockFilter')
+ExpQuery.prototype.newPendingTransactionFilter =         generateFnFor('eth_newPendingTransactionFilter')
+ExpQuery.prototype.uninstallFilter =                     generateFnFor('eth_uninstallFilter')
+ExpQuery.prototype.getFilterChanges =                    generateFnFor('eth_getFilterChanges')
+ExpQuery.prototype.getFilterLogs =                       generateFnFor('eth_getFilterLogs')
+ExpQuery.prototype.getLogs =                             generateFnFor('eth_getLogs')
+ExpQuery.prototype.getWork =                             generateFnFor('eth_getWork')
+ExpQuery.prototype.submitWork =                          generateFnFor('eth_submitWork')
+ExpQuery.prototype.submitHashrate =                      generateFnFor('eth_submitHashrate')
 
 // network level
 
-EthQuery.prototype.sendAsync = function(opts, cb){
+ExpQuery.prototype.sendAsync = function(opts, cb){
   const self = this
   self.currentProvider.sendAsync(createPayload(opts), function(err, response){
-    if (!err && response.error) err = new Error('EthQuery - RPC Error - '+response.error.message)
+    if (!err && response.error) err = new Error('ExpQuery - RPC Error - '+response.error.message)
     if (err) return cb(err)
     cb(null, response.result)
   })
